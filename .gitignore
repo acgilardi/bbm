@@ -1,0 +1,18 @@
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Misc
+app/
+build/
+temp/
+
+# Npm
+node_modules/
+
+# Bower
+bower_components/
