@@ -1,4 +1,4 @@
-reDISCulous - Everything you need to get started in disc golf.
+reDisculous - Everything you need to get started in disc golf.
 -----------
 Using Backbone and Marionette from the ground up.
 
