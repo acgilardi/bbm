@@ -1,0 +1,31 @@
+body {
+    padding-top: 50px;
+}
+
+.business-header {
+    height: 275px;
+    background: url('http://journeysimple.com/wp-content/uploads/2015/06/redisculous-banner1-e1433119542688.jpg') top center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
+.tagline {
+    text-shadow: 0 0 10px #000;
+    color: #fff;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+.img-icon {
+    height: 64px;
+    width: 64px;
+}
+
+footer {
+    margin: 50px 0;
+}
