@@ -5,11 +5,5 @@ define([
     Backbone,
     Router
 ){
-    var start = function(){
-        Router.start();
-    };
-
-    return {
-        start: start
-    };
+    return new Router;
 });

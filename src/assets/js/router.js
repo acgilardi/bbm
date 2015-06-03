@@ -1,30 +1,79 @@
 define([
-    'backbone'
+    'backbone',
+    'models/disc',
+    'models/discs',
+    'apps/discs/list/list-view',
+    'apps/discs/edit/edit-view',
+    'common/main-view'
 ], function(
-    Backbone
+    Backbone,
+    DiscModel,
+    DiscCollection,
+    DiscListView,
+    DiscEditView,
+    MainView
 ){
     var AppRouter = Backbone.Router.extend({
         routes: {
-            '/discs': 'showDiscs',
-            '/courses': 'showCourses',
-            '*actions': 'defaultAction'
+            'discs': 'showDiscs',
+            'disc/:id/edit' : 'editDisc',
+            'courses': 'showCourses',
+            'course/:id/view': 'viewCourse',
+            '': 'mainView'
+        },
+        start: function(){
+            Backbone.history.start();
+            return this;
+        },
+
+        mainView: function(){
+            var mainView = new MainView();
+            this.setView(mainView);
+        },
+
+        showDiscs: function(){
+            var _this = this;
+            var discCollection = new DiscCollection();
+
+            discCollection.fetch().done(function() {
+                var discListView = new DiscListView({
+                    collection: discCollection
+                });
+                _this.setView(discListView);
+            });
+        },
+
+        editDisc: function(id) {
+            var _this = this;
+            var discModel = new DiscModel({id: id});
+
+            discModel.fetch().done(function() {
+                var discListView = new DiscListView({
+                    collection: discCollection
+                });
+                _this.setView(discListView);
+            });
+        },
+
+        showCourses: function(){
+            // Load courses view
+        },
+
+        viewCourse: function(id) {
+
+        },
+
+        setView: function(view) {
+            if (this.view) {
+                this.view.close();
+            }
+
+            this.view = view;
+            view.setElement($('#content')).render();
+            return this;
         }
+
     });
 
-    var start = function(){
-        var app_router = new AppRouter;
-        app_router.on('showDiscs', function(){
-            // Load discs view
-        });
-        app_router.on('showCourses', function(){
-            // Load courses view
-        });
-        app_router.on('defaultAction', function(actions){
-            console.log('No route:', actions);
-        });
-        Backbone.history.start();
-    };
-    return {
-        start: start
-    };
+    return AppRouter;
 });
