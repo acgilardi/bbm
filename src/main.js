@@ -9,7 +9,8 @@ require.config({
         'marionette': 'vendor/backbone.marionette/backbone.marionette',
         'text': "vendor/text/text",
         'backbone.localStorage': 'vendor/backbone.localstorage/backbone.localStorage',
-        'backbone.subviews' : 'vendor/backbone.subviews/backbone.subviews'
+        'backbone.subviews' : 'vendor/backbone.subviews/backbone.subviews',
+        'backbone.modelBinder' : 'vendor/backbone-modelbinder/backbone.modelbinder'
     },
     shim: {
         'underscore': {

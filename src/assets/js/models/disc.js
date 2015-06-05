@@ -42,7 +42,7 @@ define([
                     break;
             }
 
-            defer.promise();
+            return defer.promise();
         }
 
     });
